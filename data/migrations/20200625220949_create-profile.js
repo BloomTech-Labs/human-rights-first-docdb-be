@@ -12,16 +12,21 @@ exports.up = (knex) => {
     .createTable('bookmarks', function (table) {
       table.increments('bookmarkId');
       table
-        .integer('userId')
+        .string('userId')
         .unsigned()
         .notNullable()
         .references('id')
         .inTable('profiles')
         .onUpdate('RESTRICT')
         .onDelete('RESTRICT');
+      table
+        .integer('documentId')
+        .notNullable();
     });
 };
 
 exports.down = (knex) => {
-  return knex.schema.dropTableIfExists('profiles');
+  return knex.schema
+    .dropTableIfExists('bookmarks')
+    .dropTableIfExists('profiles');
 };
