@@ -6,6 +6,7 @@ exports.up = (knex) => {
       table.string('email');
       table.string('name');
       table.string('avatarUrl');
+      table.boolean('admin').defaultTo('false');
       table.timestamps(true, true);
     })
 
@@ -13,13 +14,12 @@ exports.up = (knex) => {
       table.increments('bookmarkId');
       table
         .string('userId')
-        .unsigned()
         .notNullable()
         .references('id')
         .inTable('profiles')
-        .onUpdate('RESTRICT')
-        .onDelete('RESTRICT');
-      table.integer('documentId').notNullable();
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE');
+      table.string('documentId').notNullable();
     });
 };
 
