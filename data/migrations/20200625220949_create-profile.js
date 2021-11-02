@@ -19,9 +19,7 @@ exports.up = (knex) => {
         .inTable('profiles')
         .onUpdate('RESTRICT')
         .onDelete('RESTRICT');
-      table
-        .integer('documentId')
-        .notNullable();
+      table.integer('documentId').notNullable();
     });
 };
 
