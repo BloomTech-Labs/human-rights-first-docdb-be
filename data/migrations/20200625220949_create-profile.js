@@ -7,6 +7,18 @@ exports.up = (knex) => {
       table.string('name');
       table.string('avatarUrl');
       table.timestamps(true, true);
+    })
+
+    .createTable('bookmarks', function (table) {
+      table.increments('bookmarkId');
+      table
+        .integer('userId')
+        .unsigned()
+        .notNullable()
+        .references('id')
+        .inTable('profiles')
+        .onUpdate('RESTRICT')
+        .onDelete('RESTRICT');
     });
 };
 
