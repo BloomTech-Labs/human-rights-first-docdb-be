@@ -6,8 +6,23 @@ exports.up = (knex) => {
       table.string('email');
       table.string('name');
       table.string('avatarUrl');
-      table.boolean('admin').defaultTo('false');
       table.timestamps(true, true);
+    })
+
+    .createTable('admins', function (table) {
+      table.increments('adminId');
+      table
+        .string('userId')
+        .notNullable()
+        .references('id')
+        .inTable('profiles')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE');
+    })
+
+    .createTable('files', function (table) {
+      table.string('fileId');
+      table.string('fileTitle');
     })
 
     .createTable('bookmarks', function (table) {
@@ -26,5 +41,7 @@ exports.up = (knex) => {
 exports.down = (knex) => {
   return knex.schema
     .dropTableIfExists('bookmarks')
+    .dropTableIfExists('files')
+    .dropTableIfExists('admins')
     .dropTableIfExists('profiles');
 };
