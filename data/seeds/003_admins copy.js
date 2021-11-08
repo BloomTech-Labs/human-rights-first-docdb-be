@@ -1,10 +1,10 @@
 const admins = [
   {
-    id: -1,
+    adminId: -1,
     userId: '2h38dh',
   },
   {
-    id: -2,
+    adminId: -2,
     userId: 'abc123',
   },
 ];

@@ -34,7 +34,7 @@ exports.up = (knex) => {
         .inTable('profiles')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
-      table.string('documentId').notNullable();
+      table.string('fileId').notNullable();
     });
 };
 
