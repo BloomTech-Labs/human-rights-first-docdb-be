@@ -8,6 +8,7 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
 const jsdocConfig = require('../config/jsdoc');
 const dotenv = require('dotenv');
+const bookmarksRouter = require('./bookmarks/bookmarksRouter');
 const config_result = dotenv.config();
 if (process.env.NODE_ENV != 'production' && config_result.error) {
   throw config_result.error;
@@ -50,6 +51,7 @@ app.use(cookieParser());
 // application routes
 app.use('/', indexRouter);
 app.use(['/profile', '/profiles'], profileRouter);
+app.use('/bookmarks', bookmarksRouter);
 app.use('/data', dsRouter);
 
 // catch 404 and forward to error handler
