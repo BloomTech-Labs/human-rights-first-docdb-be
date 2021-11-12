@@ -20,11 +20,6 @@ exports.up = (knex) => {
         .onDelete('CASCADE');
     })
 
-    .createTable('files', function (table) {
-      table.string('fileId');
-      table.string('fileTitle');
-    })
-
     .createTable('bookmarks', function (table) {
       table.increments('bookmarkId');
       table
@@ -34,14 +29,12 @@ exports.up = (knex) => {
         .inTable('profiles')
         .onUpdate('CASCADE')
         .onDelete('CASCADE');
-      table.string('fileId').notNullable();
     });
 };
 
 exports.down = (knex) => {
   return knex.schema
     .dropTableIfExists('bookmarks')
-    .dropTableIfExists('files')
     .dropTableIfExists('admins')
     .dropTableIfExists('profiles');
 };
