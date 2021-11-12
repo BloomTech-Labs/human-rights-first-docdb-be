@@ -21,4 +21,14 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+router.post('/:id', (req, res) => {
+  Bookmarks.addbookmark(req.body)
+    .then((bookmark) => {
+      res.status(201).json(bookmark);
+    })
+    .catch((error) => {
+      res.status(500).json({ error });
+    });
+});
+
 module.exports = router;
