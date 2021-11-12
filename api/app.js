@@ -8,7 +8,6 @@ const swaggerUi = require('swagger-ui-express');
 const swaggerJSDoc = require('swagger-jsdoc');
 const jsdocConfig = require('../config/jsdoc');
 const dotenv = require('dotenv');
-const bookmarksRouter = require('./bookmarks/bookmarksRouter');
 const config_result = dotenv.config();
 if (process.env.NODE_ENV != 'production' && config_result.error) {
   throw config_result.error;
@@ -23,6 +22,7 @@ const swaggerUIOptions = {
 const indexRouter = require('./index/indexRouter');
 const profileRouter = require('./profile/profileRouter');
 const dsRouter = require('./dsService/dsRouter');
+const bookmarksRouter = require('./bookmarks/bookmarksRouter');
 
 const app = express();
 

@@ -28,7 +28,7 @@ exports.up = (knex) => {
     .createTable('bookmarks', function (table) {
       table.increments('bookmarkId');
       table
-        .string('userId')
+        .string('id')
         .notNullable()
         .references('id')
         .inTable('profiles')

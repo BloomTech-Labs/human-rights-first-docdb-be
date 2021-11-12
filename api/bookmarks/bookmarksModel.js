@@ -1,9 +1,14 @@
 const db = require('../../data/db-config.js');
 
-const getByUserId = async (userId) => {
-  return await db('bookmarks').where('userId', userId);
+const getbookmarks = () => {
+  return db('bookmarks');
+};
+
+const getByUserId = async (id) => {
+  return await db('bookmarks').where('id', id);
 };
 
 module.exports = {
   getByUserId,
+  getbookmarks,
 };
