@@ -12,7 +12,7 @@ exports.up = (knex) => {
     .createTable('admins', function (table) {
       table.increments('adminId');
       table
-        .string('userId')
+        .string('id')
         .notNullable()
         .references('id')
         .inTable('profiles')
@@ -23,7 +23,7 @@ exports.up = (knex) => {
     .createTable('bookmarks', function (table) {
       table.increments('bookmarkId');
       table
-        .string('userId')
+        .string('id')
         .notNullable()
         .references('id')
         .inTable('profiles')
