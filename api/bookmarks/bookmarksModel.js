@@ -12,9 +12,13 @@ const addbookmark = async (bookmark) => {
   await db('bookmarks').insert(bookmark);
   return await db('bookmarks').where('id', bookmark.id);
 };
+const removebookmark = async (id) => {
+  await db('bookmarks').where('id', id).del();
+};
 
 module.exports = {
   getByUserId,
   getbookmarks,
   addbookmark,
+  removebookmark,
 };
