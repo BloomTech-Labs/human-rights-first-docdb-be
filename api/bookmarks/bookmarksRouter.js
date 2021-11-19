@@ -21,8 +21,9 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
-router.post('/:id', (req, res) => {
-  Bookmarks.addbookmark(req.body)
+router.post('/:fileId', (req, res) => {
+  Bookmarks.addbookmark(req.params.fileId)
+  
     .then((bookmark) => {
       res.status(201).json(bookmark);
     })

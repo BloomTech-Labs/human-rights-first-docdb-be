@@ -24,6 +24,7 @@ const profileRouter = require('./profile/profileRouter');
 const adminRouter = require('./admin/adminRouter');
 const dsRouter = require('./dsService/dsRouter');
 const bookmarksRouter = require('./bookmarks/bookmarksRouter');
+const authRequired = require('./middleware/authRequired');
 
 const app = express();
 
@@ -51,10 +52,10 @@ app.use(cookieParser());
 
 // application routes
 app.use('/', indexRouter);
-app.use(['/profile', '/profiles'], profileRouter);
-app.use('/bookmarks', bookmarksRouter);
+app.use(['/profile', '/profiles'], authRequired, profileRouter);
+app.use('/bookmarks', authRequired, bookmarksRouter);
 
-app.use(['/admin', '/admins'], adminRouter);
+app.use(['/admin', '/admins'], authRequired, adminRouter);
 
 app.use('/data', dsRouter);
 
