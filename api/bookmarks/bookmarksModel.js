@@ -12,8 +12,8 @@ const addbookmark = async (bookmark) => {
   await db('bookmarks').insert(bookmark);
   return await db('bookmarks').where('id', bookmark.id);
 };
-const removebookmark = async (id) => {
-  await db('bookmarks').where('id', id).del();
+const removebookmark = async (bookmarkId) => {
+  await db('bookmarks').where('bookmarkId', bookmarkId).del();
 };
 
 module.exports = {

@@ -22,10 +22,9 @@ router.post('/:fileId', (req, res) => {
       res.status(500).json({ error });
     });
 });
-router.delete('/:fileId', (req, res) => {
-  const { fileId } = req.params;
-  const { id } = req.profile;
-  Bookmarks.deletebookmark({ fileId, id })
+router.delete('/:bookmarkId', (req, res) => {
+  const { bookmarkId } = req.params;
+  Bookmarks.deletebookmark(bookmarkId)
     .then((bookmark) => {
       res.status(200).json(bookmark);
     })
