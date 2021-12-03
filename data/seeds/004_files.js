@@ -1,12 +1,13 @@
+/* Commenting out the files seed until we find out why there is no files table */
 const files = [
-  {
-    fileId: '1',
-    fileTitle: 'Title1',
-  },
-  {
-    fileId: '2',
-    fileTitle: 'Title2',
-  },
+  // {
+  //   fileId: '1',
+  //   fileTitle: 'Title1',
+  // },
+  // {
+  //   fileId: '2',
+  //   fileTitle: 'Title2',
+  // },
 ];
 
 exports.files = files;
