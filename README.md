@@ -134,5 +134,13 @@ There are 3 options to get postgresql installed locally [Choose one]:
     - copy the URL to the DATABASE_URL .env variable
     - make sure to add `?ssl=true` to the end of this url
     
+## Contributors
+
+### LABS FT 41
+
+
+
+### LABS FT 40
+
 ## Contributing
 See the [contributing doc](https://github.com/Lambda-School-Labs/labs-api-starter/blob/main/CONTRIBUTING.md) for more info.
