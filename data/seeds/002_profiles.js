@@ -43,6 +43,12 @@ const profiles = [
     name: 'Josh Peck',
     avatarUrl: faker.image.avatar(),
   },
+  {
+    id: '00ultx74kMUmEW8054x6',
+    email: 'test_user@gmail.com',
+    name: '003',
+    avatarUrl: faker.image.avatar(),
+  },
 ];
 
 exports.profiles = profiles;

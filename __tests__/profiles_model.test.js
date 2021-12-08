@@ -15,6 +15,10 @@ afterAll(async () => {
   await db.destroy();
 });
 
+it('sanity check', () => {
+  expect(true).toBe(true);
+});
+
 describe('[GET] /profiles', () => {
   it.todo('returns 7 profiles');
   it.todo('returns the correct data shape');
