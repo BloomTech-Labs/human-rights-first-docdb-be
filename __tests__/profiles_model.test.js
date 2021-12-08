@@ -31,7 +31,23 @@ describe('[GET] /profiles/:id', () => {
   it.todo('returns correct error message if the profile is not found');
 });
 
-describe('[GET] /profiles', () => {
-  it.todo('returns 7 profiles');
+describe('[POST] /profiles', () => {
+  it.todo('creates a new profile');
+  it.todo('returns the correct data shape');
+});
+
+describe('[POST] /profiles', () => {
+  it.todo('creates a new profile');
+  it.todo('returns the correct data shape');
+});
+
+describe('[PUT] /profiles', () => {
+  it.todo('updates an existing profile');
+  it.todo('returns the correct data shape');
+});
+
+describe('[DELETE] /profiles/:id', () => {
+  it.todo('deletes profile');
+  it.todo('returns the right message')
   it.todo('returns the correct data shape');
 });

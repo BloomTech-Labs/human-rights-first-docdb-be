@@ -98,4 +98,9 @@ describe('profiles router endpoints', () => {
       expect(Profiles.update.mock.calls.length).toBe(1);
     });
   });
+  describe('DELETE /profile/:id', () => {
+    it.todo('should return 200 when profile is deleted');
+
+    it.todo('returns message where correct profile id is deleted');
+  });
 });
