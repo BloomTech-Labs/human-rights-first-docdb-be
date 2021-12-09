@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`findAll() returns the correct data shape 1`] = `
+Array [
+  Object {
+    "avatarUrl": "tinyurl.com/2p8bsvbz",
+    "email": "abc@gmail.com",
+    "id": "abc123",
+    "name": "John Smith",
+  },
+  Object {
+    "avatarUrl": "tinyurl.com/mph27afd",
+    "email": "mary@gmail.com",
+    "id": "2h38dh",
+    "name": "Mary Berry",
+  },
+  Object {
+    "avatarUrl": "https://tinyurl.com/4ffmpmxu",
+    "email": "brian@gmail.com",
+    "id": "j3iasd",
+    "name": "Brian Cranston",
+  },
+  Object {
+    "avatarUrl": "https://tinyurl.com/2p9a9bmm",
+    "email": "jessica@hotmail.com",
+    "id": "23jsbb",
+    "name": "Jessica Rabbit",
+  },
+  Object {
+    "avatarUrl": "https://tinyurl.com/ycktu39j",
+    "email": "Santa@gmail.com",
+    "id": "jsh123",
+    "name": "Santa Claus",
+  },
+  Object {
+    "avatarUrl": "https://tinyurl.com/4pf7d3v6",
+    "email": "Rei@gmail.com",
+    "id": "bnsdj2",
+    "name": "Rei Hino",
+  },
+  Object {
+    "avatarUrl": "https://tinyurl.com/2hy5at25",
+    "email": "jpeck@gmail.com",
+    "id": "jpe12f",
+    "name": "Josh Peck",
+  },
+  Object {
+    "avatarUrl": "https://tinyurl.com/488ef4xm",
+    "email": "test_user@gmail.com",
+    "id": "00ultx74kMUmEW8054x6",
+    "name": "003",
+  },
+]
+`;
+
+exports[`findById(id) returns the correct data shape 1`] = `
+Object {
+  "avatarUrl": "tinyurl.com/2p8bsvbz",
+  "email": "abc@gmail.com",
+  "id": "abc123",
+  "name": "John Smith",
+}
+`;

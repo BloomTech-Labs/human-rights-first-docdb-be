@@ -4,6 +4,7 @@ const findAll = async () => {
   return await db('profiles');
 };
 
+// Is this one even necessary? It's not utilized at all.
 const findBy = (filter) => {
   return db('profiles').where(filter);
 };
@@ -17,7 +18,6 @@ const create = async (profile) => {
 };
 
 const update = (id, profile) => {
-  console.log(profile);
   return db('profiles')
     .where({ id: id })
     .first()
