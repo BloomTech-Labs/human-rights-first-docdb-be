@@ -138,13 +138,12 @@ There are 3 options to get postgresql installed locally [Choose one]:
 
 ### LABS FT 41
 
-[Dominick Sallustro]()
-[Christina Yun]()
-
 [Klove Adams]()
-[Mason Mostella]()
 [Michael Greenwald]()
+[Mason Mostella]()
+[Dominick Sallustro]()
 [Michael Steiner]()
+[Christina Yun]()
 
 ### LABS FT 40
 
