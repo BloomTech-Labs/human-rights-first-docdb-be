@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`create(profile) returns the correct data shape 1`] = `
+Array [
+  Object {
+    "avatarUrl": "https://tinyurl.com/y7adbfe8",
+    "email": "rabbit@moon.com",
+    "id": "0630SM",
+    "name": "Usagi Tsukino",
+  },
+]
+`;
+
 exports[`findAll() returns the correct data shape 1`] = `
 Array [
   Object {
@@ -60,4 +71,15 @@ Object {
   "id": "abc123",
   "name": "John Smith",
 }
+`;
+
+exports[`update(id, profile) returns the correct data shape 1`] = `
+Array [
+  Object {
+    "avatarUrl": "https://tinyurl.com/4pf7d3v6",
+    "email": "Minako@gmail.com",
+    "id": "bnsdj2",
+    "name": "Minako Aino",
+  },
+]
 `;
