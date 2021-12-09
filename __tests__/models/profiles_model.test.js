@@ -103,9 +103,40 @@ describe('update(id, profile)', () => {
   });
 });
 
-describe('remove()', () => {
-  it.todo('finds and removes the correct profile');
-  it.todo('returns the correct data shape');
+describe('remove(id)', () => {
+  const profileToRemove = {
+    id: 'bnsdj2',
+    email: 'Rei@gmail.com',
+    name: 'Rei Hino',
+    avatarUrl: 'https://tinyurl.com/4pf7d3v6',
+  };
+  it('removes a profile from the db', async () => {
+    await Profiles.remove(profileToRemove.id);
+    const findAll = await db('profiles');
+    expect(findAll).toHaveLength(7);
+  });
+  it('finds and removes the correct profile', async () => {
+    const findProfileBeforeRemove = await db('profiles')
+      .where({ id: profileToRemove.id })
+      .select('*')
+      .first();
+    expect(findProfileBeforeRemove.name).toBe('Rei Hino');
+
+    await Profiles.remove(profileToRemove.id);
+
+    const findProfileAfterRemoval = await db('profiles')
+      .where({ id: profileToRemove.id })
+      .select('*')
+      .first();
+
+    expect(findProfileAfterRemoval).not.toBeDefined();
+  });
+
+  it('returns the correct data shape', async () => {
+    let res = await Profiles.remove(profileToRemove.id);
+
+    expect(res).toBe(1);
+  });
 });
 
 describe('findOrCreateProfile()', () => {
