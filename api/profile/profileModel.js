@@ -4,11 +4,6 @@ const findAll = async () => {
   return await db('profiles');
 };
 
-// Is this one even necessary? It's not utilized at all.
-const findBy = (filter) => {
-  return db('profiles').where(filter);
-};
-
 const findById = async (id) => {
   return db('profiles').where({ id }).first().select('*');
 };
@@ -42,7 +37,6 @@ const findOrCreateProfile = async (profileObj) => {
 
 module.exports = {
   findAll,
-  findBy,
   findById,
   create,
   update,
