@@ -140,6 +140,46 @@ describe('remove(id)', () => {
 });
 
 describe('findOrCreateProfile()', () => {
-  it.todo('placeholder');
-  it.todo('returns the correct data shape');
+  let res;
+  const existingProfile = {
+    id: 'bnsdj2',
+    email: 'Rei@gmail.com',
+    name: 'Rei Hino',
+    avatarUrl: 'https://tinyurl.com/4pf7d3v6',
+  };
+
+  const newProfile = {
+    id: '0630SM',
+    email: 'rabbit@moon.com',
+    name: 'Usagi Tsukino',
+    avatarUrl: 'https://tinyurl.com/y7adbfe8',
+  };
+
+  it('finds the profile in the database if it exists', async () => {
+    const findProfile = await db('profiles')
+      .where({ id: 'bnsdj2' })
+      .first()
+      .select('*');
+    expect(findProfile.name).toBe('Rei Hino');
+
+    res = await Profiles.findOrCreateProfile(existingProfile);
+    expect(res).toMatchObject(findProfile);
+  });
+  it('creates a new profile in the database if the profile did not exist', async () => {
+    let noProfile = await db('profiles')
+      .where({ id: '0630SM' })
+      .first()
+      .select('*');
+    expect(noProfile).not.toBeDefined();
+
+    res = await Profiles.findOrCreateProfile(newProfile);
+    expect(res).toMatchObject(newProfile);
+
+    const allProfiles = await db('profiles');
+    expect(allProfiles).toHaveLength(9);
+  });
+  it('returns the correct data shape', async () => {
+    res = await Profiles.findOrCreateProfile(newProfile);
+    expect(res).toMatchSnapshot();
+  });
 });

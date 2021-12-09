@@ -73,6 +73,15 @@ Object {
 }
 `;
 
+exports[`findOrCreateProfile() returns the correct data shape 1`] = `
+Object {
+  "avatarUrl": "https://tinyurl.com/y7adbfe8",
+  "email": "rabbit@moon.com",
+  "id": "0630SM",
+  "name": "Usagi Tsukino",
+}
+`;
+
 exports[`update(id, profile) returns the correct data shape 1`] = `
 Array [
   Object {
