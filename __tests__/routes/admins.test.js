@@ -32,7 +32,7 @@ describe('admins router endpoints', () => {
     ];
 
     beforeEach(async () => {
-      Admins.allAdmins.mockResolvedValue(allAdmins);
+      Admins.findAll.mockResolvedValue(allAdmins);
       res = await request(server).get('/admins');
     });
     afterEach(() => {
@@ -43,7 +43,7 @@ describe('admins router endpoints', () => {
     });
     it('should return a list of admins', () => {
       expect(res.body.length).toBe(2);
-      expect(Admins.allAdmins.mock.calls.length).toBe(1);
+      expect(Admins.findAll.mock.calls.length).toBe(1);
     });
   });
 
@@ -54,7 +54,7 @@ describe('admins router endpoints', () => {
       id: 'mk10231',
     };
     beforeEach(async () => {
-      Admins.adminById.mockResolvedValue(testAdmin);
+      Admins.findById.mockResolvedValue(testAdmin);
       res = await request(server).get('/admins/231412');
     });
     afterEach(() => {
@@ -65,7 +65,7 @@ describe('admins router endpoints', () => {
     });
     it('should return a single admin', () => {
       expect(res.body.id).toBe('mk10231');
-      expect(Admins.adminById.mock.calls.length).toBe(1);
+      expect(Admins.findById.mock.calls.length).toBe(1);
     });
   });
 
@@ -75,8 +75,8 @@ describe('admins router endpoints', () => {
       id: 'mk10231',
     };
     beforeEach(async () => {
-      Admins.adminById.mockResolvedValue(undefined);
-      Admins.createAdmin.mockResolvedValue([
+      Admins.findById.mockResolvedValue(undefined);
+      Admins.create.mockResolvedValue([
         Object.assign({ adminId: 231412 }, newAdmin),
       ]);
       res = await request(server).post('/admins').send(newAdmin);
@@ -92,7 +92,7 @@ describe('admins router endpoints', () => {
         id: 'mk10231',
         adminId: 231412,
       });
-      expect(Admins.createAdmin.mock.calls.length).toBe(1);
+      expect(Admins.create.mock.calls.length).toBe(1);
     });
     it.todo('come back to this one and make sure this is the correct shape');
   });

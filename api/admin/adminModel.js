@@ -1,22 +1,22 @@
 const db = require('../../data/db-config');
 
-const allAdmins = () => {
+const findAll = () => {
   return db('admins as ad')
     .leftJoin('profiles as pro', 'ad.id', 'pro.id')
     .select('ad.*', 'pro.name', 'pro.email');
 };
-const adminById = (adminId) => {
+const findById = (adminId) => {
   return db('admins as ad')
     .leftJoin('profiles as pro', 'ad.id', 'pro.id')
     .select('ad.*', 'pro.name', 'pro.email')
     .where('ad.adminId', adminId);
 };
-const createAdmin = async (newAdmin) => {
+const create = async (newAdmin) => {
   const admin = await db('admins').insert(newAdmin, 'id');
   return admin;
 };
 module.exports = {
-  allAdmins,
-  adminById,
-  createAdmin,
+  findAll,
+  findById,
+  create,
 };
