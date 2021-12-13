@@ -10,9 +10,9 @@ const server = require('../../api/app.js');
 
 jest.mock('../../api/bookmarks/bookmarksModel');
 // mock the auth middleware completely
-// jest.mock('../../api/middleware/authRequired', () =>
-//   jest.fn((req, res, next) => next())
-// );
+jest.mock('../../api/middleware/authRequired', () =>
+  jest.fn((req, res, next) => next())
+);
 
 describe('bookmarks router endpoints', () => {
   beforeAll(() => {
@@ -29,7 +29,7 @@ describe('bookmarks router endpoints', () => {
       const res = await request(server).get('/bookmarks/abc123');
       console.log(res.body);
       expect(res.status).toBe(200);
-      // expect(res.body).toHaveLength(3);
+      expect(res.body).toHaveLength(3);
     });
   });
 });
