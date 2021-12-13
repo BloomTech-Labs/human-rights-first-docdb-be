@@ -88,7 +88,7 @@ describe('admins router endpoints', () => {
       expect(res.status).toBe(201);
     });
     it('should return new admin', () => {
-        expect(res.body[0]).toMatchObject({
+      expect(res.body[0]).toMatchObject({
         id: 'mk10231',
         adminId: 231412,
       });
