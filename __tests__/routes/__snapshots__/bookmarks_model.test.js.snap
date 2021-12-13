@@ -72,25 +72,5 @@ Array [
     "fileId": "9",
     "id": "jpe12f",
   },
-  Object {
-    "bookmarkId": 2,
-    "fileId": "12",
-    "id": "jpe12f",
-  },
-  Object {
-    "bookmarkId": 3,
-    "fileId": "13",
-    "id": "jpe12f",
-  },
-  Object {
-    "bookmarkId": 4,
-    "fileId": "13",
-    "id": "jpe12f",
-  },
-  Object {
-    "bookmarkId": 5,
-    "fileId": "15",
-    "id": "jpe12f",
-  },
 ]
 `;
