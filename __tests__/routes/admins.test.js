@@ -51,21 +51,49 @@ describe('admins router endpoints', () => {
     let res;
     const testAdmin = {
       adminId: 231412,
-      id: 'makoto',
+      id: 'mk10231',
     };
     beforeEach(async () => {
       Admins.adminById.mockResolvedValue(testAdmin);
-      res = await request(server).get('admins/231412');
+      res = await request(server).get('/admins/231412');
     });
     afterEach(() => {
       jest.clearAllMocks();
     });
-    it.todo('should return 200');
-    it.todo('should return a single admin');
+    it('should return 200', () => {
+      expect(res.status).toBe(200);
+    });
+    it('should return a single admin', () => {
+      expect(res.body.id).toBe('mk10231');
+      expect(Admins.adminById.mock.calls.length).toBe(1);
+    });
   });
 
   describe('[POST] /admins -- creates new admin', () => {
-    it.todo('should return 201');
-    it.todo('should return new admin');
+    let res;
+    const newAdmin = {
+      id: 'mk10231',
+    };
+    beforeEach(async () => {
+      Admins.adminById.mockResolvedValue(undefined);
+      Admins.createAdmin.mockResolvedValue([
+        Object.assign({ adminId: 231412 }, newAdmin),
+      ]);
+      res = await request(server).post('/admins').send(newAdmin);
+    });
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+    it('should return 201', () => {
+      expect(res.status).toBe(201);
+    });
+    it('should return new admin', () => {
+        expect(res.body[0]).toMatchObject({
+        id: 'mk10231',
+        adminId: 231412,
+      });
+      expect(Admins.createAdmin.mock.calls.length).toBe(1);
+    });
+    it.todo('come back to this one and make sure this is the correct shape');
   });
 });
