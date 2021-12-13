@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`findAll() returns the correct data shape 1`] = `
+Array [
+  Object {
+    "adminId": -1,
+    "email": "mary@gmail.com",
+    "id": "2h38dh",
+    "name": "Mary Berry",
+  },
+  Object {
+    "adminId": -2,
+    "email": "abc@gmail.com",
+    "id": "abc123",
+    "name": "John Smith",
+  },
+]
+`;

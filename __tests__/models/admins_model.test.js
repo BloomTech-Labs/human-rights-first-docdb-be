@@ -13,13 +13,18 @@ beforeEach(async () => {
 afterAll(async () => {
   await db.destroy();
 });
-it('sanity check', () => {
-  expect(true).toBeTruthy();
-});
 
-describe('allAdmins()', () => {
-  it.todo('returns 2 admins');
-  it.todo('returns the correct data shape');
+describe('findAll()', () => {
+  let res;
+  beforeEach(async () => {
+    res = await Admins.findAll();
+  });
+  it('returns 2 admins', () => {
+    expect(res).toHaveLength(2);
+  });
+  it('returns the correct data shape', () => {
+    expect(res).toMatchSnapshot();
+  });
 });
 
 describe('adminById(adminId)', () => {
