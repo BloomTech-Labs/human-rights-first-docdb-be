@@ -14,7 +14,7 @@ router.get('/', async (req, res, next) => {
 router.post('/:fileId', (req, res) => {
   const { fileId } = req.params;
   const { id } = req.profile;
-  Bookmarks.addbookmark({ fileId, id })
+  Bookmarks.addBookmark({ fileId, id })
     .then((bookmark) => {
       res.status(201).json(bookmark);
     })
@@ -26,7 +26,7 @@ router.delete('/:fileId', (req, res) => {
   const { fileId } = req.params;
   const { id } = req.profile;
 
-  Bookmarks.deletebookmark({ fileId, id })
+  Bookmarks.removeBookmark({ fileId, id })
     .then((bookmark) => {
       res.status(200).json(bookmark);
     })
