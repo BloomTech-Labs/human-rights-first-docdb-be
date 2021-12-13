@@ -24,7 +24,19 @@ describe('getBookmarks', () => {
     expect(res).toHaveLength(14);
   });
 
-//   it('returns the correct data shape', () => {
-//     expect(res).toMatchSnapshot();
-//   });
+  it('returns the correct data shape', () => {
+    expect(res).toMatchSnapshot();
+  });
+});
+
+describe('getByUserId(id)', () => {
+  let res;
+  const id = 'abc123';
+  beforeEach(async () => {
+    res = await Bookmarks.getByUserId(id);
+  });
+
+  it('returns correct bookmarks of specific user', () => {
+    expect(res).toHaveLength(3);
+  });
 });
