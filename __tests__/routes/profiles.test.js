@@ -81,13 +81,45 @@ describe('profiles router endpoints', () => {
         avatarUrl:
           'https://s3.amazonaws.com/uifaces/faces/twitter/hermanobrother/128.jpg',
       };
-      Profiles.findById.mockResolvedValue(profile);
-      Profiles.update.mockResolvedValue([profile]);
 
-      const res = await request(server).put('/profile/').send(profile);
+      const updatedProfile = {
+        id: 'd376de0577681ca93614',
+        name: 'Cat Jones',
+        email: 'louie@example.com',
+        avatarUrl:
+          'https://s3.amazonaws.com/uifaces/faces/twitter/hermanobrother/128.jpg',
+      };
+      Profiles.findById.mockResolvedValue(profile);
+      Profiles.update.mockResolvedValue([updatedProfile]);
+
+      const res = await request(server).put('/profile/').send(updatedProfile);
       expect(res.status).toBe(200);
-      expect(res.body.profile.name).toBe('Louie Smith');
+      expect(res.body.profile.name).toBe('Cat Jones');
       expect(Profiles.update.mock.calls.length).toBe(1);
+    });
+  });
+  describe('DELETE /profile/:id', () => {
+    let profile = {
+      id: 'd376de0577681ca93614',
+      name: 'Louie Smith',
+      email: 'louie@example.com',
+      avatarUrl:
+        'https://s3.amazonaws.com/uifaces/faces/twitter/hermanobrother/128.jpg',
+    };
+
+    it('should return 200 when profile is deleted', async () => {
+      Profiles.findById.mockResolvedValue(profile);
+      Profiles.remove.mockResolvedValue({
+        message: `Profile '${profile.id}' was deleted.`,
+        profile: profile,
+      });
+
+      const res = await request(server).delete('/profile/d376de0577681ca93614');
+
+      expect(res.status).toBe(200);
+      expect(res.body.message).toBe(
+        "Profile 'd376de0577681ca93614' was deleted."
+      );
     });
   });
 });
