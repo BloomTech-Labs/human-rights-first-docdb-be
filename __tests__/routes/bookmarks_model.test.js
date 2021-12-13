@@ -40,3 +40,7 @@ describe('getByUserId(id)', () => {
     expect(res).toHaveLength(3);
   });
 });
+
+describe('addBookmark(bookmark)', () => {
+  let res;
+});
