@@ -49,6 +49,26 @@ describe('getByUserId(id)', () => {
   });
 });
 
-// describe('addBookmark(bookmark)', () => {
-//   let res;
-// });
+describe('addBookmark(bookmark)', () => {
+  let res;
+  const newBookmark = {
+    bookmarkId: -119,
+    id: '00ultx74kMUmEW8054x6',
+    fileId: '123456789',
+  };
+
+  beforeEach(async () => {
+    res = await Bookmarks.addBookmark(newBookmark);
+  });
+
+  it('returns 20 bookmarks', async () => {
+    const getAll = await db('bookmarks');
+
+    expect(getAll).toHaveLength(20);
+    expect(getAll[19]).toMatchObject(newBookmark);
+  });
+
+  it('returns the correct data shape', () => {
+    expect(res).toMatchSnapshot();
+  });
+});

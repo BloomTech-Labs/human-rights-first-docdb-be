@@ -1,5 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`addBookmark(bookmark) returns the correct data shape 1`] = `
+Array [
+  Object {
+    "bookmarkId": -114,
+    "fileId": "8334132410",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -115,
+    "fileId": "168448015060",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -116,
+    "fileId": "844527667744",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -117,
+    "fileId": "8334297344",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -118,
+    "fileId": "166144018989",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -119,
+    "fileId": "123456789",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+]
+`;
+
 exports[`getBookmarks returns the correct data shape 1`] = `
 Array [
   Object {
