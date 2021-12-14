@@ -14,7 +14,7 @@
     "migrate": "npx knex --knexfile config/knexfile.js migrate:latest",
     "rollback": "npx knex --knexfile config/knexfile.js migrate:rollback",
     "seed": "npx knex --knexfile config/knexfile.js seed:run",
-    "tests": "npx jest",
+    "tests": "npx jest --runInBand",
     "coverage": "CI=true npx jest --coverage --detectOpenHandles --forceExit"
   },
   "lint-staged": {
