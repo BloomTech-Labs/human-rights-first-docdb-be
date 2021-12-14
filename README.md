@@ -136,7 +136,7 @@ There are 3 options to get postgresql installed locally [Choose one]:
     
 ## Contributors
 
-### LABS FT 41
+#### LABS FT 41
 
 [Klove Adams](https://github.com/Klove-A)
 
@@ -150,7 +150,5 @@ There are 3 options to get postgresql installed locally [Choose one]:
 
 [Christina Yun]()
 
-### LABS FT 40
+#### LABS FT 40
 
-## Contributing
-See the [contributing doc](https://github.com/Lambda-School-Labs/labs-api-starter/blob/main/CONTRIBUTING.md) for more info.
