@@ -72,3 +72,17 @@ describe('addBookmark(bookmark)', () => {
     expect(res).toMatchSnapshot();
   });
 });
+
+describe('removeBookmark(bookmark)', () => {
+  const bookmarkToRemove = {
+    bookmarkId: -118,
+    id: '00ultx74kMUmEW8054x6',
+    fileId: '166144018989',
+  };
+
+  it('removes a bookmark from the db', async () => {
+    await Bookmarks.removeBookmark(bookmarkToRemove);
+    const getAll = await db('bookmarks');
+    expect(getAll).toHaveLength(18);
+  });
+});
