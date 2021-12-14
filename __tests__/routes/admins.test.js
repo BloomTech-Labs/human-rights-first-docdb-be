@@ -72,12 +72,14 @@ describe('admins router endpoints', () => {
   describe('[POST] /admins -- creates new admin', () => {
     let res;
     const newAdmin = {
-      id: 'mk10231',
+      id: 'j3iasd',
+      name: 'Brian Cranston',
+      email: 'brian@gmail.com',
     };
     beforeEach(async () => {
       Admins.findById.mockResolvedValue(undefined);
       Admins.create.mockResolvedValue([
-        Object.assign({ adminId: 231412 }, newAdmin),
+        Object.assign({ adminId: 1 }, newAdmin),
       ]);
       res = await request(server).post('/admins').send(newAdmin);
     });
@@ -89,11 +91,10 @@ describe('admins router endpoints', () => {
     });
     it('should return new admin', () => {
       expect(res.body[0]).toMatchObject({
-        id: 'mk10231',
-        adminId: 231412,
+        id: 'j3iasd',
+        adminId: 1,
       });
       expect(Admins.create.mock.calls.length).toBe(1);
     });
-    it.todo('come back to this one and make sure this is the correct shape');
   });
 });

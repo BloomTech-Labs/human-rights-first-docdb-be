@@ -27,13 +27,45 @@ describe('findAll()', () => {
   });
 });
 
-describe('adminById(adminId)', () => {
-  it.todo('returns correct profile by adminId');
-  it.todo('returns the correct data shape');
+describe('findById(adminId)', () => {
+  let res;
+  const adminId = 23423;
+  beforeEach(async () => {
+    res = await Admins.findById(adminId);
+  });
+  it('returns correct profile by findById', () => {
+    expect(res.name).toBe('John Smith');
+    expect(res.id).toBe('abc123');
+  });
+  it('returns the correct data shape', () => {
+    expect(res).toMatchSnapshot();
+  });
 });
 
-describe('createAdmin(newAdmin)', () => {
-  it.todo('returns newly created admin');
-  it.todo('returns 3 admins');
-  it.todo('returns the correct data shape');
+describe('create(newAdmin)', () => {
+  let res;
+  const newAdmin = {
+    id: 'j3iasd',
+  };
+  const newlyCreatedAdmin = {
+    adminId: 1,
+    id: 'j3iasd',
+    name: 'Brian Cranston',
+    email: 'brian@gmail.com',
+  };
+
+  beforeEach(async () => {
+    res = await Admins.create(newAdmin);
+  });
+  it('returns newly created admin', () => {
+    expect(res.name).toBe(newlyCreatedAdmin.name);
+    expect(res.email).toBe(newlyCreatedAdmin.email);
+  });
+  it('returns 3 admins', async () => {
+    const getAll = await db('admins');
+    expect(getAll).toHaveLength(3);
+  });
+  it('returns the correct data shape', () => {
+    expect(res).toMatchSnapshot();
+  });
 });

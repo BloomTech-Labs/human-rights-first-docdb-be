@@ -9,11 +9,17 @@ const findById = (adminId) => {
   return db('admins as ad')
     .leftJoin('profiles as pro', 'ad.id', 'pro.id')
     .select('ad.*', 'pro.name', 'pro.email')
-    .where('ad.adminId', adminId);
+    .where('ad.adminId', adminId)
+    .first();
 };
 const create = async (newAdmin) => {
-  const admin = await db('admins').insert(newAdmin, 'id');
-  return admin;
+  await db('admins').insert(newAdmin, 'id').returning('*');
+
+  return db('admins as ad')
+    .leftJoin('profiles as pro', 'ad.id', 'pro.id')
+    .select('ad.*', 'pro.name', 'pro.email')
+    .where('ad.id', newAdmin.id)
+    .first();
 };
 module.exports = {
   findAll,
