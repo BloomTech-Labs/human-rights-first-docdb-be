@@ -85,4 +85,20 @@ describe('removeBookmark(bookmark)', () => {
     const getAll = await db('bookmarks');
     expect(getAll).toHaveLength(18);
   });
+
+  it('finds and removes the correct bookmark', async () => {
+    const findBookmarkBeforeRemove = await db('bookmarks')
+      .where({ bookmarkId: bookmarkToRemove.bookmarkId })
+      .select('*')
+      .first();
+    expect(findBookmarkBeforeRemove.bookmarkId).toBe(-118);
+
+    await Bookmarks.removeBookmark(bookmarkToRemove);
+
+    const findBookmarkAfterRemoval = await db('bookmarks')
+      .where({ id: bookmarkToRemove.bookmarkId })
+      .select('*')
+      .first();
+    expect(findBookmarkAfterRemoval).not.toBeDefined();
+  });
 });
