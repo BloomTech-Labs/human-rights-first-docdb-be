@@ -79,7 +79,7 @@ describe('admins router endpoints', () => {
     beforeEach(async () => {
       Admins.findById.mockResolvedValue(undefined);
       Admins.create.mockResolvedValue([
-        Object.assign({ adminId: 1 }, newAdmin),
+        Object.assign({ adminId: 231412 }, newAdmin),
       ]);
       res = await request(server).post('/admins').send(newAdmin);
     });
@@ -91,8 +91,8 @@ describe('admins router endpoints', () => {
     });
     it('should return new admin', () => {
       expect(res.body[0]).toMatchObject({
-        id: 'j3iasd',
-        adminId: 1,
+        id: 'mk10231',
+        adminId: 231412,
       });
       expect(Admins.create.mock.calls.length).toBe(1);
     });

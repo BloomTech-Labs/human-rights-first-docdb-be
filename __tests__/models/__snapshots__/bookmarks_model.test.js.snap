@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`addBookmark(bookmark) returns the correct data shape 1`] = `
+Array [
+  Object {
+    "bookmarkId": -114,
+    "fileId": "8334132410",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -115,
+    "fileId": "168448015060",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -116,
+    "fileId": "844527667744",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -117,
+    "fileId": "8334297344",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -118,
+    "fileId": "166144018989",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -119,
+    "fileId": "123456789",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+]
+`;
+
+exports[`getBookmarks returns the correct data shape 1`] = `
+Array [
+  Object {
+    "bookmarkId": -100,
+    "fileId": "1",
+    "id": "abc123",
+  },
+  Object {
+    "bookmarkId": -101,
+    "fileId": "2",
+    "id": "abc123",
+  },
+  Object {
+    "bookmarkId": -102,
+    "fileId": "6",
+    "id": "abc123",
+  },
+  Object {
+    "bookmarkId": -103,
+    "fileId": "1",
+    "id": "23jsbb",
+  },
+  Object {
+    "bookmarkId": -104,
+    "fileId": "3",
+    "id": "23jsbb",
+  },
+  Object {
+    "bookmarkId": -105,
+    "fileId": "4",
+    "id": "j3iasd",
+  },
+  Object {
+    "bookmarkId": -106,
+    "fileId": "9",
+    "id": "jsh123",
+  },
+  Object {
+    "bookmarkId": -107,
+    "fileId": "8",
+    "id": "jsh123",
+  },
+  Object {
+    "bookmarkId": -108,
+    "fileId": "7",
+    "id": "jsh123",
+  },
+  Object {
+    "bookmarkId": -109,
+    "fileId": "2",
+    "id": "bnsdj2",
+  },
+  Object {
+    "bookmarkId": -110,
+    "fileId": "4",
+    "id": "jpe12f",
+  },
+  Object {
+    "bookmarkId": -111,
+    "fileId": "6",
+    "id": "jpe12f",
+  },
+  Object {
+    "bookmarkId": -112,
+    "fileId": "2",
+    "id": "jpe12f",
+  },
+  Object {
+    "bookmarkId": -113,
+    "fileId": "9",
+    "id": "jpe12f",
+  },
+  Object {
+    "bookmarkId": -114,
+    "fileId": "8334132410",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -115,
+    "fileId": "168448015060",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -116,
+    "fileId": "844527667744",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -117,
+    "fileId": "8334297344",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+  Object {
+    "bookmarkId": -118,
+    "fileId": "166144018989",
+    "id": "00ultx74kMUmEW8054x6",
+  },
+]
+`;
+
+exports[`getByUserId(id) returns the correct data shape 1`] = `
+Array [
+  Object {
+    "bookmarkId": -100,
+    "fileId": "1",
+    "id": "abc123",
+  },
+  Object {
+    "bookmarkId": -101,
+    "fileId": "2",
+    "id": "abc123",
+  },
+  Object {
+    "bookmarkId": -102,
+    "fileId": "6",
+    "id": "abc123",
+  },
+]
+`;
