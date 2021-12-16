@@ -3,7 +3,7 @@ const router = express.Router();
 const Admins = require('./adminModel');
 
 router.get('/', (req, res) => {
-  Admins.allAdmins()
+  Admins.findAll()
     .then((admins) => {
       res.status(200).json(admins);
     })
@@ -14,9 +14,9 @@ router.get('/', (req, res) => {
 
 router.get('/:adminId', (req, res) => {
   const { adminId } = req.params;
-  Admins.adminById(adminId)
+  Admins.findById(adminId)
     .then((admin) => {
-      res.json(admin);
+      res.status(200).json(admin);
     })
     .catch((error) => {
       res.status(500).json({ error });
@@ -24,7 +24,7 @@ router.get('/:adminId', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  Admins.createAdmin(req.body)
+  Admins.create(req.body)
     .then((admin) => {
       res.status(201).json(admin);
     })
