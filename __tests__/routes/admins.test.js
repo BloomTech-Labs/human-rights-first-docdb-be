@@ -72,7 +72,9 @@ describe('admins router endpoints', () => {
   describe('[POST] /admins -- creates new admin', () => {
     let res;
     const newAdmin = {
-      id: 'mk10231',
+      id: 'j3iasd',
+      name: 'Brian Cranston',
+      email: 'brian@gmail.com',
     };
     beforeEach(async () => {
       Admins.findById.mockResolvedValue(undefined);
@@ -94,6 +96,5 @@ describe('admins router endpoints', () => {
       });
       expect(Admins.create.mock.calls.length).toBe(1);
     });
-    it.todo('come back to this one and make sure this is the correct shape');
   });
 });
