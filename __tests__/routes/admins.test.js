@@ -91,7 +91,7 @@ describe('admins router endpoints', () => {
     });
     it('should return new admin', () => {
       expect(res.body[0]).toMatchObject({
-        id: 'mk10231',
+        id: 'j3iasd',
         adminId: 231412,
       });
       expect(Admins.create.mock.calls.length).toBe(1);
