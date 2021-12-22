@@ -57,8 +57,7 @@ red">Starting here is a placeholder until HRF BE crew says otherwise</p>
 | [GET]    | /api/profile/ or /api/profiles        | Returns an array filled with user objects.                                                             |
 | [GET]    | /api/profile/:id     | Returns the user object with the specified `id`.                                                       |
 | [POST]    | /api/profile/     | Returns the user object with the specified `id`.                                                      
-| [PUT]    | /api/users/:id     | Updates the user with the specified `id` using data from the `request body`. Returns the modified user and a success message. |
-
+| [PUT]    | /api/users/:id     | Updates the user with the specified `id` using data from the `request body`. Returns the modified user and a success message.
 | [DELETE] | /api/users/:id     | Removes the user with the specified `id` and returns the deleted user and a success message.                                 |
 #### Admins:
 
