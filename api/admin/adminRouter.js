@@ -22,7 +22,7 @@ router.get('/:adminId', (req, res) => {
       res.status(500).json({ error });
     });
 });
-
+// TODO: Currently no PUT or DELETE for admins
 router.post('/', (req, res) => {
   Admins.create(req.body)
     .then((admin) => {

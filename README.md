@@ -44,33 +44,6 @@ red">Starting here is a placeholder until HRF BE crew says otherwise</p>
 
 ## API Documentation:
 
-### Admins and Users:
-
-[GET] /api/profiles - returns an array filled with user objects:
-
-```js
-[
-  {
-    "avatarUrl": "tinyurl.com/2p8bsvbz",
-    "email": "abc@gmail.com",
-    "id": "abc123",
-    "name": "John Smith",
-  },
-  {
-    "avatarUrl": "tinyurl.com/mph27afd",
-    "email": "mary@gmail.com",
-    "id": "2h38dh",
-    "name": "Mary Berry",
-  },
-  {
-    "avatarUrl": "https://tinyurl.com/4ffmpmxu",
-    "email": "brian@gmail.com",
-    "id": "j3iasd",
-    "name": "Brian Cranston",
-  },
-]
-```
-
 #### Authentication:
 
 | Method   | URL                | Description                                                                                            |
@@ -84,19 +57,15 @@ red">Starting here is a placeholder until HRF BE crew says otherwise</p>
 | [GET]    | /api/profile/ or /api/profiles        | Returns an array filled with user objects.                                                             |
 | [GET]    | /api/profile/:id     | Returns the user object with the specified `id`.                                                       |
 | [POST]    | /api/profile/     | Returns the user object with the specified `id`.                                                      
-| [PUT]    | /api/users/:id     | Updates the user with the specified `id` using data from the `request body`. Returns the modified user |
+| [PUT]    | /api/users/:id     | Updates the user with the specified `id` using data from the `request body`. Returns the modified user and a success message. |
 
-|
-| [DELETE] | /api/users/:id     | Removes the user with the specified `id` and returns the deleted user.                                 |
+| [DELETE] | /api/users/:id     | Removes the user with the specified `id` and returns the deleted user and a success message.                                 |
 #### Admins:
 
 | Method   | URL                 | Description                                                                                                    |
 | ------   | --------------      | ---------------------------------------------------------------------------------------------------------      |
-| [POST]   | /api/events/        | Requires `organizer_id`, `title`, `date` (in the format of mm/dd/yyyy), `time` (in the format of 03:00), and a `location`. Returns the event object with the specified `event_id`.                                               |
-| [GET]    | /api/events/        | Returns an array filled with event objects.                                                                    |
-| [GET]    | /api/events/:id     | Returns the event object with the specified `event_id`.                                                        |
-| [DELETE] | /api/events/:id     | Removes the event with the specified `event_id` and returns the deleted event.                                 |
-| [PUT]    | /api/events/:id     | Updates the event with the specified `event_id` using data from the `request body`. Returns the modified event |
+| [POST]   | /api/admins/        | Creates a new admin object from an existing profile.                                               |
+| [GET]    | /api/admins/:adminId/        | Returns an admin object based on `adminId`.                                                                    |
 
 #### Bookmarks:
 
