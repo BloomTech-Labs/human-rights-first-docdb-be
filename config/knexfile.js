@@ -16,17 +16,15 @@ module.exports = {
   test: {
     client: 'pg',
     connection: process.env.DATABASE_URL,
-    migrations: { directory: '../data/migrations' },
-    seeds: { directory: '../data/seeds' },
+    migrations: { directory: '../human-rights-first-docdb-be/data/migrations' },
+    seeds: { directory: '../human-rights-first-docdb-be/data/seeds' },
   },
 
   production: {
     client: 'pg',
     connection: {
       connectionString: process.env.DATABASE_URL,
-      ssl: {
-        rejectUnauthorized: false,
-      },
+      ssl: true,
     },
     migrations: { directory: '../data/migrations' },
     seeds: { directory: '../data/seeds' },

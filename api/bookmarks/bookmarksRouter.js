@@ -22,6 +22,7 @@ router.post('/:fileId', (req, res) => {
       res.status(500).json({ error });
     });
 });
+
 router.delete('/:fileId', (req, res) => {
   const { fileId } = req.params;
   const { id } = req.profile;

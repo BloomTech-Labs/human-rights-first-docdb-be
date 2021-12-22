@@ -6,7 +6,6 @@ exports.up = (knex) => {
       table.string('email');
       table.string('name');
       table.string('avatarUrl');
-      table.timestamps(true, true);
     })
 
     .createTable('admins', function (table) {

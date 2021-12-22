@@ -4,10 +4,6 @@ const findAll = async () => {
   return await db('profiles');
 };
 
-const findBy = (filter) => {
-  return db('profiles').where(filter);
-};
-
 const findById = async (id) => {
   return db('profiles').where({ id }).first().select('*');
 };
@@ -17,7 +13,6 @@ const create = async (profile) => {
 };
 
 const update = (id, profile) => {
-  console.log(profile);
   return db('profiles')
     .where({ id: id })
     .first()
@@ -42,7 +37,6 @@ const findOrCreateProfile = async (profileObj) => {
 
 module.exports = {
   findAll,
-  findBy,
   findById,
   create,
   update,
