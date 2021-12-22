@@ -63,8 +63,10 @@ red">Starting here is a placeholder until HRF BE crew says otherwise</p>
 
 | Method   | URL                 | Description                                                                                                    |
 | ------   | --------------      | ---------------------------------------------------------------------------------------------------------      |
+| [GET]    | /api/admins//        | Returns an array of admin objects. |
+| [GET]    | /api/admins/:adminId/        | Returns an admin object based on `adminId`. |
 | [POST]   | /api/admins/        | Creates a new admin object from an existing profile.                                               |
-| [GET]    | /api/admins/:adminId/        | Returns an admin object based on `adminId`.                                                                    |
+
 
 #### Bookmarks:
 
