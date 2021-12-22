@@ -46,23 +46,28 @@ red">Starting here is a placeholder until HRF BE crew says otherwise</p>
 
 ### Admins and Users:
 
-[GET] /api/users - returns an array filled with user objects similar to the following:
+[GET] /api/profiles - returns an array filled with user objects:
 
 ```js
 [
   {
-    user_id: 1,
-    password: "$2a$08$R//PP9zaFmo5t3RYL4Yh0ONj.68YU2UQ5HlXbt8TbD.WHFMweWCsG",
-    name: "Fred",
-    email: "fred@test.com",
-    role: "admin"
-  }, {
-    user_id: 2,
-    password: "$2a$08$6TceWJyijzXrBAQlP.ZsW.o1y1MmmfJaCb3GPlJ.LnC3eYKtiWbzK",
-    name: "Shaggy",
-    email: "shaggy@test.com",
-    role: "user"
-  }
+    "avatarUrl": "tinyurl.com/2p8bsvbz",
+    "email": "abc@gmail.com",
+    "id": "abc123",
+    "name": "John Smith",
+  },
+  {
+    "avatarUrl": "tinyurl.com/mph27afd",
+    "email": "mary@gmail.com",
+    "id": "2h38dh",
+    "name": "Mary Berry",
+  },
+  {
+    "avatarUrl": "https://tinyurl.com/4ffmpmxu",
+    "email": "brian@gmail.com",
+    "id": "j3iasd",
+    "name": "Brian Cranston",
+  },
 ]
 ```
 
@@ -70,19 +75,20 @@ red">Starting here is a placeholder until HRF BE crew says otherwise</p>
 
 | Method   | URL                | Description                                                                                            |
 | ------   | --------------     | ------------------------------------------------------------------------------------------------------ |
-| [POST]   | /api/auth/register | Requires a username, password, name, and email. Registers a new user.                                  |
-| [POST]   | /api/auth/login    | Requires a username and password. Logs the user in.                                                    |
+| [POST]   | /api/auth/login    | Requires a username and password. Logs the user in and handled by Okta.                                                    |
 
-#### Users:
+#### Profiles:
 
 | Method   | URL                | Description                                                                                            |
 | ------   | --------------     | ------------------------------------------------------------------------------------------------------ |
-| [GET]    | /api/users/        | Returns an array filled with user objects.                                                             |
-| [GET]    | /api/users/:id     | Returns the user object with the specified `user_id`.                                                       |
-| [DELETE] | /api/users/:id     | Removes the user with the specified `user_id` and returns the deleted user.                                 |
-| [PUT]    | /api/users/:id     | Updates the user with the specified `user_id` using data from the `request body`. Returns the modified user |
+| [GET]    | /api/profile/ or /api/profiles        | Returns an array filled with user objects.                                                             |
+| [GET]    | /api/profile/:id     | Returns the user object with the specified `id`.                                                       |
+| [POST]    | /api/profile/     | Returns the user object with the specified `id`.                                                      
+| [PUT]    | /api/users/:id     | Updates the user with the specified `id` using data from the `request body`. Returns the modified user |
 
-#### Events:
+|
+| [DELETE] | /api/users/:id     | Removes the user with the specified `id` and returns the deleted user.                                 |
+#### Admins:
 
 | Method   | URL                 | Description                                                                                                    |
 | ------   | --------------      | ---------------------------------------------------------------------------------------------------------      |
@@ -92,7 +98,7 @@ red">Starting here is a placeholder until HRF BE crew says otherwise</p>
 | [DELETE] | /api/events/:id     | Removes the event with the specified `event_id` and returns the deleted event.                                 |
 | [PUT]    | /api/events/:id     | Updates the event with the specified `event_id` using data from the `request body`. Returns the modified event |
 
-#### Guests:
+#### Bookmarks:
 
 | Method   | URL                        | Description                                                                                                 |
 | ------   | --------------             | ---------------------------------------------------------------------------------------------------------   |
@@ -100,16 +106,6 @@ red">Starting here is a placeholder until HRF BE crew says otherwise</p>
 | [POST]   | /api/events/:id/guests     | Requires a `user_id` and a boolean of `attending` (true or false). Adds a guest to the event.               |
 | [DELETE] | /api/events/:id/guests     | Requires `user_id` Removes the guest with the specified `user_id` and returns the new list of guests.       |
 
-#### Items:
-
-| Method   | URL                       | Description                                                                                                  |
-| ------   | --------------            | ---------------------------------------------------------------------------------------------------------    |
-| [GET]    | /api/events/:id/items     | Returns an array filled with items for the event.                                                            |
-| [POST]   | /api/events/:id/items     | Requires an `item_name` and a `name` (name of the person bringing the item) and adds the new item to the list of items                                              |
-| [DELETE] | /api/events/:id/items     | Requires `item_name` Removes the item with the specified `item_name` and returns the new list of items.      |
-<br />
-<p style="padding: 0; margin: 0; font-size: 2rem; text-align: center; font-family: 
-monospace; font-weight: bold;color: red">END PLACEHOLDER</p>
 
 ### Setup postgres
 
