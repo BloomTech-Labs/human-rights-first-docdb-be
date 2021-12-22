@@ -9,6 +9,19 @@ router.get('/', async (req, res, next) => {
   } catch (err) {
     next(err);
   }
+  // Below is the code we wrote to refactor the endpoint with .then &
+  // .catch instead of try/catch
+  //
+  // const id = req.profile.id; /* <--- profile errors as undefined in testing */
+  // const id = req.params.id;  /* <--- this works with testing */
+  // Bookmarks.getByUserId(id)
+  //   .then((bookmarks) => {
+  //     console.log(bookmarks);
+  //     res.status(200).json(bookmarks);
+  //   })
+  //   .catch((error) => {
+  //     res.status(500).json({ error });
+  //   });
 });
 
 router.post('/:fileId', (req, res) => {
