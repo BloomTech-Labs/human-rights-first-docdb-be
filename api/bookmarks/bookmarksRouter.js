@@ -2,6 +2,7 @@ const Bookmarks = require('./bookmarksModel');
 const router = require('express').Router();
 
 router.get('/', async (req, res, next) => {
+  // console.log('this is req:', req); /* Ryan's request to console.log req */
   const id = req.profile.id;
   try {
     const bookmarks = await Bookmarks.getByUserId(id);
