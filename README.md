@@ -44,6 +44,9 @@ red">Starting here is a placeholder until HRF BE crew says otherwise</p>
 
 ## API Documentation:
 
+- To see the shape of the data navigate into the `test` folder then into the 
+  `snapshots` folder.
+
 #### Authentication:
 
 | Method   | URL                | Description                                                                                            |
