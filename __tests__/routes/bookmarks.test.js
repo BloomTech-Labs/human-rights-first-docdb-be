@@ -1,6 +1,6 @@
-const request = require('supertest');
+// const request = require('supertest');
 const express = require('express');
-const Bookmarks = require('../../api/bookmarks/bookmarksModel');
+// const Bookmarks = require('../../api/bookmarks/bookmarksModel');
 const bookmarksRouter = require('../../api/bookmarks/bookmarksRouter');
 const server = express();
 server.use(express.json());
