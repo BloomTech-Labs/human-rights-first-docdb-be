@@ -148,7 +148,7 @@ There are 3 options to get postgresql installed locally [Choose one]:
 
 [Michael Steiner](https://github.com/steinmikey)
 
-[Christina Yun]()
+[Christina Yun](https://github.com/christina-yun)
 
 #### LABS FT 40
 
