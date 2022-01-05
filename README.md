@@ -44,72 +44,41 @@ red">Starting here is a placeholder until HRF BE crew says otherwise</p>
 
 ## API Documentation:
 
-### Admins and Users:
-
-[GET] /api/users - returns an array filled with user objects similar to the following:
-
-```js
-[
-  {
-    user_id: 1,
-    password: "$2a$08$R//PP9zaFmo5t3RYL4Yh0ONj.68YU2UQ5HlXbt8TbD.WHFMweWCsG",
-    name: "Fred",
-    email: "fred@test.com",
-    role: "admin"
-  }, {
-    user_id: 2,
-    password: "$2a$08$6TceWJyijzXrBAQlP.ZsW.o1y1MmmfJaCb3GPlJ.LnC3eYKtiWbzK",
-    name: "Shaggy",
-    email: "shaggy@test.com",
-    role: "user"
-  }
-]
-```
+- To see the shape of the data navigate into the `test` folder then into the 
+  `snapshots` folder.
 
 #### Authentication:
 
 | Method   | URL                | Description                                                                                            |
 | ------   | --------------     | ------------------------------------------------------------------------------------------------------ |
-| [POST]   | /api/auth/register | Requires a username, password, name, and email. Registers a new user.                                  |
-| [POST]   | /api/auth/login    | Requires a username and password. Logs the user in.                                                    |
+| [POST]   | /api/auth/login    | Requires a username and password. Logs the user in and handled by Okta.                                                    |
 
-#### Users:
+#### Profiles:
 
 | Method   | URL                | Description                                                                                            |
 | ------   | --------------     | ------------------------------------------------------------------------------------------------------ |
-| [GET]    | /api/users/        | Returns an array filled with user objects.                                                             |
-| [GET]    | /api/users/:id     | Returns the user object with the specified `user_id`.                                                       |
-| [DELETE] | /api/users/:id     | Removes the user with the specified `user_id` and returns the deleted user.                                 |
-| [PUT]    | /api/users/:id     | Updates the user with the specified `user_id` using data from the `request body`. Returns the modified user |
-
-#### Events:
+| [GET]    | /api/profile/ or /api/profiles        | Returns an array filled with user objects.                                                             |
+| [GET]    | /api/profile/:id     | Returns the user object with the specified `id`.                                                       |
+| [POST]    | /api/profile/     | Returns the user object with the specified `id`.                                                      
+| [PUT]    | /api/users/:id     | Updates the user with the specified `id` using data from the `request body`. Returns the modified user and a success message.
+| [DELETE] | /api/users/:id     | Removes the user with the specified `id` and returns the deleted user and a success message.                                 |
+#### Admins:
 
 | Method   | URL                 | Description                                                                                                    |
 | ------   | --------------      | ---------------------------------------------------------------------------------------------------------      |
-| [POST]   | /api/events/        | Requires `organizer_id`, `title`, `date` (in the format of mm/dd/yyyy), `time` (in the format of 03:00), and a `location`. Returns the event object with the specified `event_id`.                                               |
-| [GET]    | /api/events/        | Returns an array filled with event objects.                                                                    |
-| [GET]    | /api/events/:id     | Returns the event object with the specified `event_id`.                                                        |
-| [DELETE] | /api/events/:id     | Removes the event with the specified `event_id` and returns the deleted event.                                 |
-| [PUT]    | /api/events/:id     | Updates the event with the specified `event_id` using data from the `request body`. Returns the modified event |
+| [GET]    | /api/admins        | Returns an array of admin objects. |
+| [GET]    | /api/admins/:adminId        | Returns an admin object based on `adminId`. |
+| [POST]   | /api/admins        | Creates a new admin object from an existing profile.                                               |
 
-#### Guests:
+
+#### Bookmarks:
 
 | Method   | URL                        | Description                                                                                                 |
 | ------   | --------------             | ---------------------------------------------------------------------------------------------------------   |
-| [GET]    | /api/events/:id/guests     | Returns an array filled with guests attending the event.                                                    |
-| [POST]   | /api/events/:id/guests     | Requires a `user_id` and a boolean of `attending` (true or false). Adds a guest to the event.               |
-| [DELETE] | /api/events/:id/guests     | Requires `user_id` Removes the guest with the specified `user_id` and returns the new list of guests.       |
+| [GET]    | /api/bookmarks     | Returns an array of bookmark objects, including a unique bookmarkId, id (the user's id), and fileId                                                    |
+| [POST]   | /api/bookmarks/:fileId     | Requires a `fileId` and `id` (user's id). Adds a bookmark object to the bookmarks table.               |
+| [DELETE] | /api/bookmarks/:fileId     | Requires a `fileId`and the user's `id` Removes the bookmark with the specified `fileId` from the bookmarks table.       |
 
-#### Items:
-
-| Method   | URL                       | Description                                                                                                  |
-| ------   | --------------            | ---------------------------------------------------------------------------------------------------------    |
-| [GET]    | /api/events/:id/items     | Returns an array filled with items for the event.                                                            |
-| [POST]   | /api/events/:id/items     | Requires an `item_name` and a `name` (name of the person bringing the item) and adds the new item to the list of items                                              |
-| [DELETE] | /api/events/:id/items     | Requires `item_name` Removes the item with the specified `item_name` and returns the new list of items.      |
-<br />
-<p style="padding: 0; margin: 0; font-size: 2rem; text-align: center; font-family: 
-monospace; font-weight: bold;color: red">END PLACEHOLDER</p>
 
 ### Setup postgres
 
