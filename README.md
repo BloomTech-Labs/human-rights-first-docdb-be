@@ -25,22 +25,32 @@ You can learn more about Human Rights First [HERE](https://www.humanrightsfirst.
 
 See .env.sample for example values
 
-### Setup the application
+<br>
 
-- create your project repo by forking or using this as a template.
+# Interested in Contributing?
+
+When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
+
+Please note we have a [code of conduct](./CODE_OF_CONDUCT.md). Please follow it in all your interactions with the project.
+
+<br>
+
+## Installation
+
+- Fork and clone the repo to install it as your own remote.
+  - **note** please [be sure to set your remote](https://help.github.jp/enterprise/2.11/user/articles/changing-a-remote-s-url/) for this repo to point to your Labs Team Front End Repository.
 - run: `npm install` to download all dependencies.
-- run: `cp .env.sample .env` and update the environment variables to match your local
-  setup.
+- Create your `.env` file and update it with the environment variables you will have received from this product's Release Manager.
+- Open up pgAdmin 4 or your PostgreSQL GUI of choice
+- Create a new database
+- Update your `DATABASE_URL` environment variable to match the name you gave your local database and your pgAdmin4 password.
 - run: `npm run migrate` to create the starting schema.
 - run: `npm run seed` to populate your db with some data.
 - run: `npm run tests` to confirm all is setup and tests pass.
 - run: `npm run watch:dev` to start nodemon in local dev environment.
-<br />
-<br />
-<p style="padding: 0; margin: 0; font-size: 2rem; text-align: center; font-family: 
-monospace; 
-font-weight: bold;color: 
-red">Starting here is a placeholder until HRF BE crew says otherwise</p>
+
+<br>
+
 
 ## API Documentation:
 
