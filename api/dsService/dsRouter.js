@@ -1,4 +1,6 @@
+/* eslint-disable prettier/prettier */
 const express = require('express');
+const { default: axios } = require('axios');
 const router = express.Router();
 const dsModel = require('./dsModel');
 const authRequired = require('../middleware/authRequired');
@@ -114,6 +116,21 @@ router.get('/viz/:state', authRequired, function (req, res) {
     .catch((error) => {
       console.error(error);
       res.status(500).json(error);
+    });
+});
+
+router.get('/text/:file_id', authRequired, async function (req, res) {
+  const file_id = req.params.file_id;
+
+  axios
+    .get(`${process.env.DS_API_URL}/raw_text/${file_id}`)
+    .then((text_res) => {
+      const data = JSON.stringify(text_res.data);
+      const parsed_data = JSON.parse(data);
+      res.status(200).json(parsed_data);
+    })
+    .catch((err) => {
+      res.status(500).json({ message: err.message });
     });
 });
 
